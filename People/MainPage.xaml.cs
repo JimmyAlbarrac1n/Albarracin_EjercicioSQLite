@@ -15,7 +15,7 @@ public partial class MainPage : ContentPage
     {
         statusMessage.Text = "";
 
-        await App.PersonRepo.AddNewPerson(newPerson.Text);
+        await App.PersonRepo.AddNewPersonJA(newPerson.Text);
         statusMessage.Text = App.PersonRepo.StatusMessage;
     }
 
@@ -23,7 +23,7 @@ public partial class MainPage : ContentPage
     {
         statusMessage.Text = "";
 
-        List<PersonJA> people = await App.PersonRepo.GetAllPeople();
+        List<PersonJA> people = await App.PersonRepo.GetAllPeopleJA();
         peopleList.ItemsSource = people;
     }
 

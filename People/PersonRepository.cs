@@ -11,7 +11,7 @@ public class PersonRepository
 
     private SQLiteAsyncConnection conn;
 
-    private async Task Init()
+    private async Task InitJA()
     {
         if (conn != null)
             return;
@@ -26,13 +26,13 @@ public class PersonRepository
         _dbPath = dbPath;                        
     }
 
-    public async Task AddNewPerson(string name)
+    public async Task AddNewPersonJA(string name)
     {
         int result = 0;
         try
         {
             // Call Init()
-            await Init();
+            await InitJA();
 
             // basic validation to ensure a name was entered
             if (string.IsNullOrEmpty(name))
@@ -48,11 +48,11 @@ public class PersonRepository
         }
     }
 
-    public async Task<List<PersonJA>> GetAllPeople()
+    public async Task<List<PersonJA>> GetAllPeopleJA()
     {
         try
         {
-            await Init();
+            await InitJA();
             return await conn.Table<PersonJA>().ToListAsync();
         }
         catch (Exception ex)
